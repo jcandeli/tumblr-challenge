@@ -79,7 +79,7 @@ SearchComponent.defaultProps = {
 };
 
 const Search = connect(
-    null,
+    mapStateToProps,
     actions
 )(SearchComponent);
 

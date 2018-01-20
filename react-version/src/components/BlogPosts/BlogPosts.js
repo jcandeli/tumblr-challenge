@@ -10,6 +10,9 @@ class BlogPostsComponent extends Component {
       return (
             <div className="blog-posts">
                 {
+                  this.props.loading && <p>Loading ...</p>
+                }
+                {
                   this.props.posts.map(post => (
                     <Post
                         post={post}
@@ -23,19 +26,21 @@ class BlogPostsComponent extends Component {
     }
 }
 
-const mapStateToProps = ({ tumblr: { posts } }) => ({ posts });
+const mapStateToProps = ({ tumblr: { posts, loading } }) => ({ posts, loading });
 
 BlogPostsComponent.propTypes = {
-    posts: PropTypes.array
+    posts: PropTypes.array,
+    loading: PropTypes.bool
 };
 
 BlogPostsComponent.defaultProps = {
-    posts: []
+    posts: [],
+    loading: PropTypes.bool
 };
 
 const BlogPosts = connect(
     mapStateToProps,
-    {...tumblrActions, ...favoritesActions}
+    { ...tumblrActions, ...favoritesActions }
 )(BlogPostsComponent);
 
 export default BlogPosts;
