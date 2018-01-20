@@ -7,8 +7,13 @@ import App from './components/App';
 import tumblr from './redux/tumblr';
 import favorites from './redux/favorites';
 
+import './theme/main.css';
+
 const store = createStore(
-    combineReducers(tumblr, favorites),
+    combineReducers({
+        tumblr,
+        favorites
+    }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

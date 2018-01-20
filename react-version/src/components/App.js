@@ -3,14 +3,24 @@ import Search from './Search';
 import BlogPosts from './BlogPosts';
 import Favorites from './Favorites';
 
+import './App.css';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Search />
-        <BlogPosts />
-        <Favorites />
-      </div>
+        <div className="app">
+            <div className="col">
+                <div className="margined-bottom">
+                    <Search />
+                </div>
+
+                <BlogPosts />
+            </div>
+
+            <div className="col">
+                <Favorites />
+            </div>
+        </div>
     );
   }
 }
