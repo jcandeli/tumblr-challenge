@@ -1,0 +1,61 @@
+/*
+ * variables
+ */
+/*
+ * elements
+ */
+body {
+  background-color: #f5f5f5;
+  font-family: 'Open Sans', sans-serif; }
+
+/*
+ * atomic
+ */
+.margined {
+  margin: 20px; }
+
+.margined-left {
+  margin-left: 20px; }
+
+.margined-right {
+  margin-right: 20px; }
+
+.margined-top {
+  margin-top: 20px; }
+
+.margined-bottom {
+  margin-bottom: 20px; }
+
+.padded {
+  padding: 20px; }
+
+.padded-left {
+  padding-left: 20px; }
+
+.padded-right {
+  padding-right: 20px; }
+
+.padded-top {
+  padding-top: 20px; }
+
+.padded-bottom {
+  padding-bottom: 20px; }
+
+/*
+ * UI components
+ */
+.btn {
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-width: 0px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 4px; }
+  .btn.btn-primary {
+    color: #fff;
+    background-color: #86c3d3; }
+    .btn.btn-primary:hover {
+      background-color: #419bb2; }

@@ -41,7 +41,7 @@ class SearchComponent extends Component {
                   <input type="text" id="tag" name="tag" value={tag} onChange={this.handleChange} />
               </label>
 
-              <button onClick={this.search}>Search</button>
+              <button className="btn btn-primary" onClick={this.search}>Search</button>
           </div>
       );
     }

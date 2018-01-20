@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { actions } from '../../redux/tumblr';
+import { actions as tumblrActions } from '../../redux/tumblr';
+import { actions as favoritesActions } from '../../redux/favorites';
 import Post from '../Post';
 
 class BlogPostsComponent extends Component {
-  render() {
-    return (
-        <div className="blog-posts">
-            {
-                this.props.posts.map(post => (
-                    <Post post={post} key={post.id} />
-                ))
-            }
-        </div>
-    );
-  }
+    render() {
+      return (
+            <div className="blog-posts">
+                {
+                  this.props.posts.map(post => (
+                    <Post
+                        post={post}
+                        key={post.id}
+                        handleAdd={() => { this.props.saveFavorite(post) }}
+                    />
+                  ))
+                }
+            </div>
+      );
+    }
 }
 
 const mapStateToProps = ({ tumblr: { posts } }) => ({ posts });
@@ -30,7 +35,7 @@ BlogPostsComponent.defaultProps = {
 
 const BlogPosts = connect(
     mapStateToProps,
-    actions
+    {...tumblrActions, ...favoritesActions}
 )(BlogPostsComponent);
 
 export default BlogPosts;
