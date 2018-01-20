@@ -33,6 +33,8 @@ export default function reducer(state = defaultState, action = {}) {
         return { ...state, favorites };
     }
     case constants.DELETE_FAVORITE:
+        const favorites = state.favorites.filter(post => (post.id !== action.postsId));
+        return { ...state, favorites };
     default:
         return state;
     }

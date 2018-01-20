@@ -13,7 +13,7 @@ class FavoritesComponent extends Component {
                     <Post
                         post={post}
                         key={post.id}
-                        handleDelete={() => { this.props.deleteFavorite(post) }}
+                        handleRemove={() => { this.props.deleteFavorite(post.id) }}
                     />
                   ))
                 }

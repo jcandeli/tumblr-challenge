@@ -26,33 +26,56 @@ class SearchComponent extends Component {
     }
 
     render() {
-      const { blogName, tag } = this.state;
-      return (
-          <div className="search">
-              <h2>Search</h2>
-  
-              <label htmlFor="blogName">
-                  Blog Name:
-                  <input type="text" id="blogName" name="blogName" value={blogName} onChange={this.handleChange} />
-              </label>
-  
-              <label htmlFor="tag">
-                  Tag:
-                  <input type="text" id="tag" name="tag" value={tag} onChange={this.handleChange} />
-              </label>
+        const { blogName, tag, loading } = this.state;
+        return (
+            <div className="search">
+                <h2>Search</h2>
+                <p>{loading && 'loading'}</p>
 
-              <button className="btn btn-primary" onClick={this.search}>Search</button>
-          </div>
-      );
+                <label htmlFor="blogName">
+                    Blog Name:
+                    <input
+                        type="text"
+                        id="blogName"
+                        name="blogName"
+                        value={blogName}
+                        onChange={this.handleChange}
+                    />
+                </label>
+
+                <label htmlFor="tag">
+                    Tag:
+                    <input
+                        type="text"
+                        id="tag"
+                        name="tag"
+                        value={tag}
+                        onChange={this.handleChange}
+                    />
+                </label>
+
+                <button
+                    className="btn btn-primary"
+                    onClick={this.search}
+                    disabled={(loading || (blogName === '' && tag === ''))}
+                >
+                    Search
+                </button>
+            </div>
+        );
     }
 }
 
+const mapStateToProps = ({ tumblr: { loading } }) => ({ loading });
+
 SearchComponent.propTypes = {
-    fetchBlog: PropTypes.func
+    fetchBlog: PropTypes.func,
+    loading: PropTypes.bool
 };
 
 SearchComponent.defaultProps = {
-    fetchBlog: () => {}
+    fetchBlog: () => {},
+    loading: false
 };
 
 const Search = connect(
@@ -62,3 +85,7 @@ const Search = connect(
 
 export default Search;
 
+
+// TODO
+// disable search button if no blog name or tag entered
+// disable search if still loading

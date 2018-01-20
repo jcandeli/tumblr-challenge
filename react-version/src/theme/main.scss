@@ -81,4 +81,12 @@ text[type="text"] {
             background-color: darken(#86c3d3, 20);
         }
     }
+
+    &[disabled] {
+        background-color: #cacaca;
+
+        &:hover {
+            background-color: #cacaca;
+        }
+    }
 }

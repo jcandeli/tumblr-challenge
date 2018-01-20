@@ -59,3 +59,7 @@ body {
     background-color: #86c3d3; }
     .btn.btn-primary:hover {
       background-color: #419bb2; }
+  .btn[disabled] {
+    background-color: #cacaca; }
+    .btn[disabled]:hover {
+      background-color: #cacaca; }
