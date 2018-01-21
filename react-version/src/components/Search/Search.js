@@ -33,31 +33,33 @@ class SearchComponent extends Component {
             <div className="search">
                 <h1>Tumblr Search</h1>
 
-                <label htmlFor="blogName" className="margined-right">
-                    Blog Name:
-                    <input
-                        type="text"
-                        id="blogName"
-                        name="blogName"
-                        value={blogName}
-                        onChange={this.handleChange}
-                        className="margined-left-sm"
-                    />
-                </label>
+                <div>
+                    <label htmlFor="blogName">
+                        Blog Name:
+                        <input
+                            type="text"
+                            id="blogName"
+                            name="blogName"
+                            value={blogName}
+                            onChange={this.handleChange}
+                            className="margined-left-sm"
+                        />
+                    </label>
 
-                <label htmlFor="tag">
-                    Tag:
-                    <input
-                        type="text"
-                        id="tag"
-                        name="tag"
-                        value={tag}
-                        onChange={this.handleChange}
-                        className="margined-left-sm"
-                    />
-                </label>
+                    <label htmlFor="tag">
+                        Tag:
+                        <input
+                            type="text"
+                            id="tag"
+                            name="tag"
+                            value={tag}
+                            onChange={this.handleChange}
+                            className="margined-left-sm"
+                        />
+                    </label>
+                </div>
 
-                <div className="margined-top">
+                <div className="margined-top text-right">
                     <button
                         className="btn btn-primary"
                         onClick={this.search}

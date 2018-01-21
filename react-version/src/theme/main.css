@@ -32,7 +32,8 @@ img {
   max-width: 100%; }
 
 h1, h2, h3, h4, h5 {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: 10px; }
 
 /*
  * atomic
@@ -69,6 +70,9 @@ h1, h2, h3, h4, h5 {
 
 .padded-bottom {
   padding-bottom: 20px; }
+
+.text-right {
+  text-align: right; }
 
 /*
  * UI components

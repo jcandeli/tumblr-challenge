@@ -13,7 +13,7 @@ class Post extends Component {
                     /*
                      * Text
                      */
-                    (post.type === 'text') && <div dangerouslySetInnerHTML={{ __html: post.description }} />
+                    (post.type === 'text') && <div dangerouslySetInnerHTML={{ __html: post.body }} />
                 }
                 {
                     /*
@@ -74,6 +74,17 @@ class Post extends Component {
                 }
                 {
                     /*
+                     * Audio
+                     */
+                    (post.type === 'audio') && (
+                        <div>
+                            <div dangerouslySetInnerHTML={{ __html: post.caption }} />
+                            <div dangerouslySetInnerHTML={{ __html: post.player }} />
+                        </div>
+                    )
+                }
+                {
+                    /*
                      * Answer
                      */
                     (post.type === 'answer') && (
@@ -83,24 +94,26 @@ class Post extends Component {
                         </div>
                     )
                 }
-                {
-                    handleAdd && (
-                        <button
-                            className="btn btn-primary"
-                            onClick={handleAdd}
-                            disabled={post.favorited}
-                        >
-                            Add
-                        </button>
-                    )
-                }
-                {
-                    handleRemove && (
-                        <button className="btn btn-warning" onClick={handleRemove}>
-                            Remove
-                        </button>
-                    )
-                }
+                <div className="text-right">
+                    {
+                        handleAdd && (
+                            <button
+                                className="btn btn-primary"
+                                onClick={handleAdd}
+                                disabled={post.favorited}
+                            >
+                                Add
+                            </button>
+                        )
+                    }
+                    {
+                        handleRemove && (
+                            <button className="btn btn-warning" onClick={handleRemove}>
+                                Remove
+                            </button>
+                        )
+                    }
+                </div>
             </div>
         );
     }
@@ -119,6 +132,3 @@ Post.defaultProps = {
 };
 
 export default Post;
-
-// TODO:
-// disable button if already saved
