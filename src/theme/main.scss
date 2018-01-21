@@ -1,0 +1,143 @@
+/*
+ * variables
+ */
+$margin: 20px;
+$padding: 20px;
+
+/*
+ * elements
+ */
+body {
+    background-color: #f5f3ee;
+    font-family: 'Open Sans', sans-serif;
+    color: #5a6175;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: lighten(#5a6175, 30);
+    &:hover {
+        color: #5a6175;
+    }
+}
+
+input[type="text"] {
+    display: inline-block;
+    height: 28px;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+figure {
+    margin: 10px 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/*
+ * atomic
+ */
+.margined {
+    margin: $margin;
+}
+
+.margined-left {
+    margin-left: $margin;
+}
+
+.margined-left-sm {
+    margin-left: $margin / 2;
+}
+
+.margined-right {
+    margin-right: $margin;
+}
+
+.margined-top {
+    margin-top: $margin;
+}
+
+.margined-bottom {
+    margin-bottom: $margin;
+}
+
+.padded {
+    padding: $padding;
+}
+
+.padded-left {
+    padding-left: $padding;
+}
+
+.padded-right {
+    padding-right: $padding;
+}
+
+.padded-top {
+    padding-top: $padding;
+}
+
+.padded-bottom {
+    padding-bottom: $padding;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/*
+ * UI components
+ */
+.btn {
+    display: inline-block;
+    width: 120px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 1.4;
+    border-width: 0px;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 4px;
+
+    &.btn-primary {
+        color: #fff;
+        background-color: #55c2bb;
+
+        &:hover {
+            background-color: darken(#55c2bb, 10);
+        }
+    }
+
+    &.btn-warning {
+        color: #fff;
+        background-color: #ec6b76;
+
+        &:hover {
+            background-color: darken(#ec6b76, 10);
+        }
+    }
+
+    &[disabled] {
+        background-color: #cacaca;
+
+        &:hover {
+            background-color: #cacaca;
+        }
+    }
+}
+
+.error-message {
+    color: red;
+}

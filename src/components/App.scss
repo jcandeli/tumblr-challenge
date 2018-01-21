@@ -1,0 +1,16 @@
+.app {
+    min-width: 1120px;
+    max-width: 1600px;
+    display: flex;
+    margin: 30px auto;
+
+    .col {
+        flex-grow: 1;
+        width: calc(50% - 20px);
+        padding: 20px;
+
+        &:first-of-type {
+            border-right: solid #e2e2e2 1px;
+        }
+    }
+}

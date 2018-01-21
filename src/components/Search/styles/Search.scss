@@ -1,0 +1,16 @@
+.search {
+    label {
+        width: 50%;
+        display: inline-flex;
+        white-space: nowrap;
+
+        &:first-of-type {
+            width: calc(50% - 10px);
+            padding-right: 10px;
+        }
+    }
+
+    input {
+        flex-grow: 1;
+    }
+}
