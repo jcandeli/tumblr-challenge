@@ -26,11 +26,12 @@ class SearchComponent extends Component {
     }
 
     render() {
-        const { blogName, tag, loading } = this.state;
+        const { blogName, tag } = this.state;
+        const { loading, errors } = this.props;
+
         return (
             <div className="search">
                 <h2>Search</h2>
-                <p>{loading && 'loading'}</p>
 
                 <label htmlFor="blogName">
                     Blog Name:
@@ -61,21 +62,29 @@ class SearchComponent extends Component {
                 >
                     Search
                 </button>
+
+                {
+                    errors.map(error => (
+                        <p className="error-message" key="error.title">{error.title}</p>
+                    ))
+                }
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ tumblr: { loading } }) => ({ loading });
+const mapStateToProps = ({ tumblr: { loading, errors } }) => ({ loading, errors });
 
 SearchComponent.propTypes = {
     fetchBlog: PropTypes.func,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    errors: PropTypes.array
 };
 
 SearchComponent.defaultProps = {
     fetchBlog: () => {},
-    loading: false
+    loading: false,
+    errors: []
 };
 
 const Search = connect(

@@ -63,3 +63,6 @@ body {
     background-color: #cacaca; }
     .btn[disabled]:hover {
       background-color: #cacaca; }
+
+.error-message {
+  color: red; }

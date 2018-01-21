@@ -6,25 +6,26 @@ export const constants = {
 
 export const actions = {
     fetchBlog: (blogName, tag) => ({
-            type: constants.FETCH_BLOG,
-            blogName,
-            tag
+        type: constants.FETCH_BLOG,
+        blogName,
+        tag
     }),
 
     fetchBlogSuccess: (posts) => ({
-            type: constants.FETCH_BLOG_SUCCESS,
-            posts
+        type: constants.FETCH_BLOG_SUCCESS,
+        posts
     }),
 
-    fetchBlogError: (error) => ({
-            type: constants.FETCH_BLOG_ERROR,
-            error
+    fetchBlogError: (errors) => ({
+        type: constants.FETCH_BLOG_ERROR,
+        errors
     })
 };
 
 export const defaultState = {
     loading: false,
-    posts: []
+    posts: [],
+    errors: []
 };
 
 /**
@@ -36,13 +37,12 @@ export const defaultState = {
 export default function reducer(state = defaultState, action = {}) {
     switch (action.type) {
     case constants.FETCH_BLOG:
-        return { ...state, posts: [], loading: true };
+        return { ...state, posts: [], loading: true, errors: [] };
     case constants.FETCH_BLOG_SUCCESS:
-
-        return { ...state, posts: action.posts, loading: false };
+        return { ...state, posts: action.posts, loading: false, errors: [] };
     case constants.FETCH_BLOG_ERROR:
-        return { ...state, loading: false };
+        return { ...state, loading: false, errors: [...action.errors] };
     default:
-            return state;
+        return state;
     }
 }
