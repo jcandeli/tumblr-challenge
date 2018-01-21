@@ -31,9 +31,9 @@ class SearchComponent extends Component {
 
         return (
             <div className="search">
-                <h2>Search</h2>
+                <h1>Tumblr Search</h1>
 
-                <label htmlFor="blogName">
+                <label htmlFor="blogName" className="margined-right">
                     Blog Name:
                     <input
                         type="text"
@@ -41,6 +41,7 @@ class SearchComponent extends Component {
                         name="blogName"
                         value={blogName}
                         onChange={this.handleChange}
+                        className="margined-left-sm"
                     />
                 </label>
 
@@ -52,16 +53,20 @@ class SearchComponent extends Component {
                         name="tag"
                         value={tag}
                         onChange={this.handleChange}
+                        className="margined-left-sm"
                     />
                 </label>
 
-                <button
-                    className="btn btn-primary"
-                    onClick={this.search}
-                    disabled={(loading || (blogName === '' && tag === ''))}
-                >
-                    Search
-                </button>
+                <div className="margined-top">
+                    <button
+                        className="btn btn-primary"
+                        onClick={this.search}
+                        disabled={(loading || (blogName === '' && tag === ''))}
+                    >
+                        Search
+                    </button>
+                </div>
+
 
                 {
                     errors.map(error => (

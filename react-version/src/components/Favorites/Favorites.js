@@ -6,19 +6,20 @@ import Post from '../Post';
 
 class FavoritesComponent extends Component {
     render() {
-      return (
+        return (
             <div className="favorites">
+                <h2>Favorites</h2>
                 {
-                  this.props.favorites.map(post => (
-                    <Post
-                        post={post}
-                        key={post.id}
-                        handleRemove={() => { this.props.deleteFavorite(post.id) }}
-                    />
-                  ))
+                    this.props.favorites.map(post => (
+                        <Post
+                            post={post}
+                            key={post.id}
+                            handleRemove={() => { this.props.deleteFavorite(post.id) }}
+                        />
+                    ))
                 }
             </div>
-      );
+        );
     }
 }
 

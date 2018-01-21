@@ -1,4 +1,9 @@
 .app {
-  display: flex; }
+  min-width: 1040px;
+  max-width: 2880px;
+  display: flex;
+  margin: 20px; }
   .app .col {
-    width: 50%; }
+    flex-grow: 1;
+    width: calc(50% - 20px);
+    margin: 10px; }

@@ -8,12 +8,40 @@ $padding: 20px;
  * elements
  */
 body {
-    background-color: #f5f5f5;
+    background-color: #f5f3ee;
     font-family: 'Open Sans', sans-serif;
+    color: #5a6175;
+    margin: 0;
 }
 
-text[type="text"] {
+a {
+    text-decoration: none;
+    color: lighten(#5a6175, 30);
+    &:hover {
+        color: #5a6175;
+    }
+}
 
+input[type="text"] {
+    display: inline-block;
+    height: 28px;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+figure {
+    margin: 10px 0;
+}
+
+img {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
 }
 
 /*
@@ -25,6 +53,10 @@ text[type="text"] {
 
 .margined-left {
     margin-left: $margin;
+}
+
+.margined-left-sm {
+    margin-left: $margin / 2;
 }
 
 .margined-right {
@@ -64,6 +96,7 @@ text[type="text"] {
  */
 .btn {
     display: inline-block;
+    width: 120px;
     margin-bottom: 0px;
     font-size: 14px;
     line-height: 1.4;
@@ -75,10 +108,19 @@ text[type="text"] {
 
     &.btn-primary {
         color: #fff;
-        background-color: #86c3d3;
+        background-color: #55c2bb;
 
         &:hover {
-            background-color: darken(#86c3d3, 20);
+            background-color: darken(#55c2bb, 10);
+        }
+    }
+
+    &.btn-warning {
+        color: #fff;
+        background-color: #ec6b76;
+
+        &:hover {
+            background-color: darken(#ec6b76, 10);
         }
     }
 

@@ -21,7 +21,7 @@ class Post extends Component {
                  */
                 (post.type === 'photo') && post.photos.map(
                     photo => (
-                        <figure>
+                        <figure key={photo.original_size.url}>
                             <img src={photo.alt_sizes[1].url} alt={photo.caption} />
                             <figcaption>{photo.caption}</figcaption>
                         </figure>
@@ -46,12 +46,12 @@ class Post extends Component {
                 (post.type === 'link') && (
                     <div>
                         <h3>{post.title}</h3>
-                        <a href={post.url}>{post.url}</a>
+                        <a href={post.url} target="_blank" >{post.url}</a>
                         <div dangerouslySetInnerHTML={{ __html: post.description }} />
                         {
                             post.photos && post.photos.map(
                                 photo => (
-                                    <figure>
+                                    <figure key={photo.original_size.url}>
                                         <img src={photo.alt_sizes[1].url} alt={photo.caption} />
                                         <figcaption>{photo.caption}</figcaption>
                                     </figure>
@@ -62,13 +62,35 @@ class Post extends Component {
                 )
             }
             {
+                /*
+                 * Video
+                 */
+                (post.type === 'video') && (
+                    <div>
+                        <div dangerouslySetInnerHTML={{ __html: post.caption }} />
+                        <div dangerouslySetInnerHTML={{ __html: post.player[1].embed_code }} />
+                    </div>
+                )
+            }
+            {
+                /*
+                 * Answer
+                 */
+                (post.type === 'answer') && (
+                    <div>
+                        <p>Q: <i><q>{post.question}</q></i></p>
+                        <div dangerouslySetInnerHTML={{ __html: post.answer }} />
+                    </div>
+                )
+            }
+            {
                 handleAdd && (
                     <button className="btn btn-primary" onClick={handleAdd}>Add</button>
                 )
             }
             {
                 handleRemove && (
-                    <button className="btn btn-primary" onClick={handleRemove}>Remove</button>
+                    <button className="btn btn-warning" onClick={handleRemove}>Remove</button>
                 )
             }
         </div>
