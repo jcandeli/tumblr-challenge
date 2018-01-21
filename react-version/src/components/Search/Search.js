@@ -98,8 +98,3 @@ const Search = connect(
 )(SearchComponent);
 
 export default Search;
-
-
-// TODO
-// disable search button if no blog name or tag entered
-// disable search if still loading

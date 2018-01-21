@@ -34,3 +34,6 @@ render(
     </Provider>,
     document.getElementById('root')
 );
+
+// TODO
+// add route for just viewing favorites

@@ -6,23 +6,33 @@ import { actions as favoritesActions } from '../../redux/favorites';
 import Post from '../Post';
 
 class BlogPostsComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.handleAddFavorite = this.handleAddFavorite.bind(this);
+    }
+
+    handleAddFavorite(post) {
+        this.props.saveFavorite(post);
+        this.props.postFavorited(post.id);
+    }
+
     render() {
-      return (
+        return (
             <div className="blog-posts">
                 {
-                  this.props.loading && <p>Loading ...</p>
+                    this.props.loading && <p>Loading ...</p>
                 }
                 {
-                  this.props.posts.map(post => (
-                    <Post
-                        post={post}
-                        key={post.id}
-                        handleAdd={() => { this.props.saveFavorite(post) }}
-                    />
-                  ))
+                    this.props.posts.map(post => (
+                        <Post
+                            post={post}
+                            key={post.id}
+                            handleAdd={() => { this.handleAddFavorite(post) }}
+                        />
+                    ))
                 }
             </div>
-      );
+        );
     }
 }
 

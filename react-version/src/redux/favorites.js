@@ -27,14 +27,17 @@ export const defaultState = {
  **/
 export default function reducer(state = defaultState, action = {}) {
     switch (action.type) {
+
     case constants.SAVE_FAVORITE: {
         const favorites = [...state.favorites];
         favorites.push(action.post);
         return { ...state, favorites };
     }
+
     case constants.DELETE_FAVORITE:
         const favorites = state.favorites.filter(post => (post.id !== action.postsId));
         return { ...state, favorites };
+
     default:
         return state;
     }

@@ -1,8 +1,8 @@
 .app {
   min-width: 1040px;
-  max-width: 2880px;
+  max-width: 1600px;
   display: flex;
-  margin: 20px; }
+  margin: 30px auto; }
   .app .col {
     flex-grow: 1;
     width: calc(50% - 20px);
