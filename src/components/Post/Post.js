@@ -1,99 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Text from './Text';
+import Photos from './Photos';
+import Quote from './Quote';
+import Link from './Link';
+import Video from './Video';
+import Audio from './Audio';
+import Answer from './Answer';
+
 import './styles/Post.css';
 
 class Post extends Component {
+    getPostType(postType) {
+        switch (postType) {
+        case 'text':
+            return Text;
+        case 'photo':
+            return Photos;
+        case 'quote':
+            return Quote;
+        case 'link':
+            return Link;
+        case 'video':
+            return Video;
+        case 'audio':
+            return ;
+        case 'answer':
+            return Answer;
+        default:
+            return Text;
+        }
+    }
+
     render() {
         const { post, handleAdd, handleRemove } = this.props;
+        const PostType = this.getPostType(post.type);
     
         return (
             <div className="post margined-bottom padded">
-                {
-                    /*
-                     * Text
-                     */
-                    (post.type === 'text') && <div dangerouslySetInnerHTML={{ __html: post.body }} />
-                }
-                {
-                    /*
-                     * Photos
-                     */
-                    (post.type === 'photo') && post.photos.map(
-                        photo => (
-                            <figure key={photo.original_size.url}>
-                                <img src={photo.original_size.url} alt={photo.caption} />
-                                <figcaption>{photo.caption}</figcaption>
-                            </figure>
-                        )
-                    )
-                }
-                {
-                    /*
-                     * Quote
-                     */
-                    (post.type === 'quote') && (
-                        <div>
-                            <q>{post.text}</q>
-                            <div dangerouslySetInnerHTML={{ __html: post.source }} />
-                        </div>
-                    )
-                }
-                {
-                    /*
-                     * Link
-                     */
-                    (post.type === 'link') && (
-                        <div>
-                            <h3>{post.title}</h3>
-                            <a href={post.url} target="_blank" >{post.url}</a>
-                            <div dangerouslySetInnerHTML={{ __html: post.description }} />
-                            {
-                                post.photos && post.photos.map(
-                                    photo => (
-                                        <figure key={photo.original_size.url}>
-                                            <img src={photo.alt_sizes[1].url} alt={photo.caption} />
-                                            <figcaption>{photo.caption}</figcaption>
-                                        </figure>
-                                    )
-                                )
-                            }
-                        </div>
-                    )
-                }
-                {
-                    /*
-                     * Video
-                     */
-                    (post.type === 'video') && (
-                        <div>
-                            <div dangerouslySetInnerHTML={{ __html: post.caption }} />
-                            <div dangerouslySetInnerHTML={{ __html: post.player[1].embed_code }} />
-                        </div>
-                    )
-                }
-                {
-                    /*
-                     * Audio
-                     */
-                    (post.type === 'audio') && (
-                        <div>
-                            <div dangerouslySetInnerHTML={{ __html: post.caption }} />
-                            <div dangerouslySetInnerHTML={{ __html: post.player }} />
-                        </div>
-                    )
-                }
-                {
-                    /*
-                     * Answer
-                     */
-                    (post.type === 'answer') && (
-                        <div>
-                            <p>Q: <i><q>{post.question}</q></i></p>
-                            <div dangerouslySetInnerHTML={{ __html: post.answer }} />
-                        </div>
-                    )
-                }
+                <PostType post={post} />
+
                 <div className="text-right">
                     {
                         handleAdd && (
