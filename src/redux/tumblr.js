@@ -54,7 +54,7 @@ export default function reducer(state = defaultState, action = {}) {
         return { ...state, posts: [], loading: true, errors: [] };
 
     case constants.FETCH_BLOG_SUCCESS:
-        return { ...state, posts: action.posts, loading: false, errors: [] };
+        return { ...state, posts: action.posts, loading: false };
 
     case constants.FETCH_BLOG_ERROR:
         return { ...state, loading: false, errors: [...action.errors] };
