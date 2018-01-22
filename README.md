@@ -5,11 +5,17 @@ npm i
 npm start
 ```
 
+### How to test
+`npm test`
+*Note* if you get an error saying `Error: Error watching file for changes: EMFILE`, doing `brew install watchman` seemed to fix it.
+
 ### Front end stack
 * react
 * redux
 * sagas
 * SASS
+* jest
+* enzyme
 
 ### Notes
 The reason I created a `Component.js` and `index.js` file in each component folder is so that I can import like so
