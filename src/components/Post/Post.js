@@ -5,6 +5,7 @@ import Text from './Text';
 import Photos from './Photos';
 import Quote from './Quote';
 import Link from './Link';
+import Chat from './Chat';
 import Video from './Video';
 import Audio from './Audio';
 import Answer from './Answer';
@@ -22,10 +23,12 @@ class Post extends Component {
             return Quote;
         case 'link':
             return Link;
+        case 'chat':
+            return Chat;
         case 'video':
             return Video;
         case 'audio':
-            return ;
+            return Audio;
         case 'answer':
             return Answer;
         default:
