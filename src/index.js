@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import App from './components/App';
 import tumblr from './redux/tumblr';
@@ -18,10 +19,7 @@ const store = createStore(
         tumblr,
         favorites
     }),
-    compose(
-        applyMiddleware(sagaMiddleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
 sagaMiddleware.run(sagas);
